@@ -24,7 +24,7 @@ class AppDynamicsJob(unittest.TestCase):
         driver.find_element_by_id("username").clear()
         driver.find_element_by_id("username").send_keys("18575588381")
         driver.find_element_by_id("password").clear()
-        driver.find_element_by_id("password").send_keys("123456")
+        driver.find_element_by_id("password").send_keys("1234567")
         driver.find_element_by_xpath("//div[@id='root']/div/div[2]/div").click()
         driver.find_element_by_xpath("//button[@type='submit']").click()
         driver.find_element_by_xpath(
@@ -39,14 +39,14 @@ class AppDynamicsJob(unittest.TestCase):
 
     def is_alert_present(self):
         try:
-            self.driver.switch_to_alert()
+            self.driver.switch_to.alert()
         except NoAlertPresentException as e:
             return False
         return True
 
     def close_alert_and_get_its_text(self):
         try:
-            alert = self.driver.switch_to_alert()
+            alert = self.driver.switch_to.alert()
             alert_text = alert.text
             if self.accept_next_alert:
                 alert.accept()
@@ -64,3 +64,4 @@ class AppDynamicsJob(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
