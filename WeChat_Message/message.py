@@ -43,7 +43,8 @@ while True:
                 }
                 print("当前推送"+str(s)+"\n")
                 requests.packages.urllib3.disable_warnings()
-                result = requests.get("https://sc.ftqq.com/SCT116384TccRhxPGO8D2Mk3JeujfSIbos.send?title="+str(s))
+                result = requests.get("https://sc.ftqq.com/SCT116384TccRhxPGO8D2Mk3JeujfSIbos.send", params=params,
+                                      headers=headers1, timeout=10, verify=False)
                 time.sleep(1)
                 print("推送完成！", result)
                 datas.append(s1)
